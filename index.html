@@ -1,68 +1,5 @@
 <!doctype html>
 
-<!--
-
-    Welcome to the light side of the source, young padawan.
-
-    One step closer to learn something interesting you are...
-
-                               ____                  
-                            _.' :  `._               
-                        .-.'`.  ;   .'`.-.           
-               __      / : ___\ ;  /___ ; \      __  
-             ,'_ ""=-.:__;".-.";: :".-.":__;.-="" _`,
-             :' `.t""=-.. '<@.`;_  ',@:` ..-=""j.' `;
-                  `:-.._J '-.-'L__ `-.-' L_..-;'     
-                    "-.__ ;  .-"  "-.  : __.-"       
-                        L ' /.======.\ ' J           
-                         "-.   "__"   .-"            
-                        __.l"-:_JL_;-";.__           
-                     .-j/'.;  ;""""  / .'\"-.        
-                   .' /:`. "-.:     .-" .';  `.      
-                .-"  / ;  "-. "-..-" .-"  :    "-.   
-             .+"-.  : :      "-.__.-"      ;-._   \  
-             ; \  `.; ;                    : : "+. ; 
-             :  ;   ; ;                    : ;  : \: 
-             ;  :   ; :                    ;:   ;  : 
-            : \  ;  :  ;                  : ;  /  :: 
-            ;  ; :   ; :                  ;   :   ;: 
-            :  :  ;  :  ;                : :  ;  : ; 
-            ;\    :   ; :                ; ;     ; ; 
-            : `."-;   :  ;              :  ;    /  ; 
-             ;    -:   ; :              ;  : .-"   : 
-             :\     \  :  ;            : \.-"      : 
-              ;`.    \  ; :            ;.'_..-=  / ; 
-              :  "-.  "-:  ;          :/."      .'  :
-               \         \ :          ;/  __        :
-                \       .-`.\        /t-""  ":-+.   :
-                 `.  .-"    `l    __/ /`. :  ; ; \  ;
-                   \   .-" .-"-.-"  .' .'j \  /   ;/ 
-                    \ / .-"   /.     .'.' ;_:'    ;  
-                     :-""-.`./-.'     /    `.___.'   
-                           \ `t  ._  /               
-                            "-.t-._:'                
-
--->
-
-<!--
-    
-    So you'd like to know how to use impress.js?
-    
-    You've made the first, very important step - you're reading the source code.
-    And that's how impress.js presentations are built - with HTML and CSS code.
-    
-    Believe me, you need quite decent HTML and CSS skills to be able to use impress.js effectively.
-    And what is even more important, you need to be a designer, too, because there are no default
-    styles for impress.js presentations, there is no default or automatic layout for them.
-    
-    You need to design and build it by hand.
-    
-    So...
-    
-    Would you still like to know how to use impress.js?
-    
--->
-
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -76,180 +13,100 @@
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:regular,semibold,italic,italicsemibold|PT+Sans:400,700,400italic,700italic|PT+Serif:400,700,400italic,700italic" rel="stylesheet" />
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 
-    <!--
-        
-        Impress.js doesn't depend on any external stylesheet. Script adds all styles it needs for
-        presentation to work.
-        
-        This style below contains styles only for demo presentation. Browse it to see how impress.js
-        classes are used to style presentation steps, or how to apply fallback styles, but I don't want
-        you to use them directly in your presentation.
-        
-        Be creative, build your own. We don't really want all impress.js presentations to look the same,
-        do we?
-        
-        When creating your own presentation get rid of this file. Start from scratch, it's fun!
-        
-    -->
     <link href="impress-demo.css" rel="stylesheet" />
     
     <link rel="shortcut icon" href="favicon.png" />
     <link rel="apple-touch-icon" href="apple-touch-icon.png" />
 </head>
 
-<!--
-    
-    Body element is used by impress.js to set some useful class names, that will allow you to detect
-    the support and state of the presentation in CSS or other scripts.
-    
-    First very useful class name is `impress-not-supported`. This class means, that browser doesn't
-    support features required by impress.js, so you should apply some fallback styles in your CSS.
-    It's not necessary to add it manually on this element. If the script detects that browser is not
-    good enough it will add this class, but keeping it in HTML means that users without JavaScript
-    will also get fallback styles.
-    
-    When impress.js script detects that browser supports all required features, this class name will
-    be removed.
-    
-    The class name on body element also depends on currently active presentation step. More details about
-    it can be found later, when `hint` element is being described.
-    
--->
 <body class="impress-not-supported">
 
-<!--
-    For example this fallback message is only visible when there is `impress-not-supported` class on body.
--->
+
+
 <div class="fallback-message">
     <p>Your browser <b>doesn't support the features required</b> by impress.js, so you are presented with a simplified version of this presentation.</p>
     <p>For the best experience please use the latest <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b> browser.</p>
 </div>
 
-<!--
-    
-    Now that's the core element used by impress.js.
-    
-    That's the wrapper for your presentation steps. In this element all the impress.js magic happens.
-    It doesn't have to be a `<div>`. Only `id` is important here as that's how the script find it.
-    
-    You probably won't need it now, but there are some configuration options that can be set on this element.
-    
-    To change the duration of the transition between slides use `data-transition-duration="2000"` giving it
-    a number of ms. It defaults to 1000 (1s).
-    
-    You can also control the perspective with `data-perspective="500"` giving it a number of pixels.
-    It defaults to 1000. You can set it to 0 if you don't want any 3D effects.
-    If you are willing to change this value make sure you understand how CSS perspective works:
-    https://developer.mozilla.org/en/CSS/perspective
-    
-    But as I said, you won't need it for now, so don't worry - there are some simple but interesing things
-    right around the corner of this tag ;)
-    
--->
+<nav>
+  <a class="prev" href="#">prev</a>
+  <a class="next" href="#">next</a>
+</nav>
+<script>
+  jQuery(document).ready(function(){
+    $('nav .next').on('click',function(e){
+        impress().next();
+        return false;
+    });
+    $('nav .prev').on('click',function(e){
+        impress().prev();
+        return false;
+    });
+  });
+
+</script>
 <div id="impress">
 
-    <!--
-        
-        Here is where interesting thing start to happen.
-        
-        Each step of the presentation should be an element inside the `#impress` with a class name
-        of `step`. These step elements are positioned, rotated and scaled by impress.js, and
-        the 'camera' shows them on each step of the presentation.
-        
-        Positioning information is passed through data attributes.
-        
-        In the example below we only specify x and y position of the step element with `data-x="-1000"`
-        and `data-y="-1500` attributes. This means that **the center** of the element (yes, the center)
-        will be positioned in point x = -1000px and y = -1500px of the presentation 'canvas'.
-        
-        It will not be rotated or scaled.
-        
-    -->
 
-    <!--
-        
-        The `id` attribute of the step element is used to identify it in the URL, but it's optional.
-        If it is not defined, it will get a default value of `step-N` where N is a number of slide.
-        
-        So in the example below it'll be `step-2`.
-        
-        The hash part of the url when this step is active will be `#/step-2`.
-        
-        You can also use `#step-2` in a link, to point directly to this particular step.
-        
-        Please note, that while `#/step-2` (with slash) would also work in a link it's not recommended.
-        Using classic `id`-based links like `#step-2` makes these links usable also in fallback mode.
-        
-    -->
-
-    <!--
-        
-        This is an example of step element being scaled.
-        
-        Again, we use a `data-` attribute, this time it's `data-scale="4"`, so it means that this
-        element will be 4 times larger than the others.
-        From presentation and transitions point of view it means, that it will have to be scaled
-        down (4 times) to make it back to it's correct size.
-        
-    -->
-    <div id="title" class="step" data-x="0" data-y="0" data-scale="4">
-        <h1>oVirt Python API</h1>
+    <div id="title" class="step" data-x="0" data-y="0" data-scale="3">
+        <h1>cli automation</h1>
     </div>
 
     <div class="step slide" data-x="1500" data-y="0">
-      <p>
-      <q>
-      <h1>Consists Of</h1>
+      <h1>Choices</h1>
       <ul>
-        <li><strong>api   </strong> - holds the connection and http session</li>
-        <li><strong>broker</strong> - sends and receives via HTTP through the session/api </li>
-        <li><strong>params</strong> - generates the xml to be sent through the broker </li>
+        <li><strong>Java</strong> vs other languages</li> 
+        <li><strong>Shell Channel</strong> vs Exec Channel</li>
+        <li>Trilead/Ganymed vs <strong>Jsch</strong> vs others</li> 
+        <li><strong>Maven</strong> vs Ant</li> 
+        <li><strong>JUnit</strong> vs TestNG</li>
       </ul>
-      </p>
-    </q>
     </div>
 
     <div class="step slide" data-x="2500" data-y="0">
       <p>
-      <q>
-        <h1>5 Restful Actions</h1>
-      <ul>
-        <li>Create (Collection broker) - Add</li>
-        <li>Delete (Member broker)     - Delete</li>
-        <li>List (Collection broker)   - List</li>
-        <li>Show (Collection broker)   - Get</li>
-        <li>Update (Member broker)     - Update</li>
-        <em>shown as: Action(broker) - method name</em><br />
-        <em>** custom actions too  for each broker</em>
-      </ul>
+        <h1>RhscShell</h1>
+        what: 
+          <ul>
+            <li>start/stop rhsc shell</li> 
+            <li>holds the ssh session</li>
+            <li>sends command to the rhsc shell</li> 
+          </ul>
       </p>
-    </q>
     </div>
 
-    <div class="step slide" data-x="3500" data-y="100">
-      <h1>Api Class</h1>
-      <script src="https://gist.github.com/dstywho/524704f3844e8c1c8086.js"></script>
-      composed of collection brokers:
-      <ul>
-        <li>clusters</li>
-        <li>datacenters</li>
-        <li>hosts...</li>
-      </ul>
+    <div class="step slide" data-x="2500" data-y="1000">
+      <h1>InvalidInputTest</h1>
+      <script src="https://gist.github.com/dstywho/f2111d5c8ec94dcd6238.js"></script>
+      <h1>TestBase</h1>
+      <script src="https://gist.github.com/dstywho/75e11521bf3494421204.js"></script>
     </div>
 
-    <div class="step slide" data-x="4500" data-y="100">
-      <h1>Brokers/Params</h1>
-    <script src="https://gist.github.com/dstywho/ec1c61807d69db727319.js"></script>
+    <div class="step slide" data-x="3500" data-y="0">
+      <p>
+        <h1>Models</h1>
+        POJO that represents entities: Volume, Cluster, Host</li>
+        <h1>Factories</h1>
+        used for creating models
+        <h1>Repositories</h1>
+        used for creating/deleting/storing/listing the models from the rhsc-shell
+      </p>
+    </div>
+    <div class="step slide" data-x="3500" data-y="1000">
+      <h1>VolumeTest</h1>
+      <script src="https://gist.github.com/dstywho/9556b6f024e4335e391d.js"></script>
     </div>
 
-    <div class="step slide" data-x="0" data-y="2000">
-      <h1>Rhevm ART</h1>
-      <strong>Pros:</strong>
-      <li>same tests used to test multiple apis: python, rest, cli</li>
-      <li>define test cases using xml or through code</li>
-      <br />
-      <strong>Cons:</strong>
-      <li>learning curve is steep</li>
+
+    <div class="step slide" data-x="4500" data-y="0">
+      <h1>config.xml</h1>
+      <script src="https://gist.github.com/dstywho/2175a6caf772c330bbe5.js"></script>
+    </div>
+    <div class="step slide" data-x="5500" data-y="0">
+      <h1>Jenkins</h1>
+      <img src="https://wiki.jenkins-ci.org/download/attachments/2916393/logo.png?version=1&modificationDate=1302753947000" />
+      <a href="http://jenkins-rhs.lab.eng.blr.redhat.com:8080/job/rhsc-cli/configure" target="anothertab">job</a>
+      <a href="http://jenkins-rhs.lab.eng.blr.redhat.com:8080/job/rhsc-cli/qe.redhat.com$rhsc-cli/16/testReport/com.redhat.qe/HostTest/test/" target="anothertab">test failure</a>
     </div>
     <!--
         
